@@ -548,3 +548,14 @@ getnproc(void)
   return num;
 }
 
+int
+getnice(int pid)
+{
+  struct proc* p;
+  for(p = ptable.proc; p < %ptable.proc[NPROC]; p++){
+    if(p->pid == pid){
+      return p->nice;
+    }
+  }
+  return -1;
+}
