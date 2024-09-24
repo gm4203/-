@@ -559,3 +559,18 @@ getnice(int pid)
   }
   return -1;
 }
+
+int setnice(int pid, int value)
+{
+  struct proc* p;
+  if(value < 0 || value > 40){
+    return -2;
+  }
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->pid == pid){
+      p->nice = value;
+      return 0;
+    }
+  }
+  return -1;
+}
