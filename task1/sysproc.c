@@ -113,12 +113,13 @@ sys_getnp(void)
 
 int
 sys_getnice(void){
-        int pid;
-        return getnice(pid);
+    int pid;
+    return getnice(pid);
 }
 
 int
 sys_setnice(void){
-        return setnice();
+    int pid, value;    
+    return setnice(pid, value);
 }
 
